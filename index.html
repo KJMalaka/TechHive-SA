@@ -1,0 +1,1116 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechHive SA - Premium Electronics Store | South Africa</title>
+<meta name="description" content="South Africa's premier electronics retailer. Shop premium smartphones, laptops, gaming gear and more with fast delivery and extended warranties.">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="header">
+  <div class="header-container">
+    <a href="#" class="logo" data-page="home">TechHive SA</a>
+    <nav class="nav">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#" data-page="home" class="nav-link active">Home</a></li>
+        <li><a href="#" data-page="about" class="nav-link">About Us</a></li>
+        <li><a href="#" data-page="cart" class="nav-link">Cart <span id="cart-count" class="cart-badge">0</span></a></li>
+        <li><a href="#" data-page="compare" class="nav-link">Compare</a></li>
+        <li><a href="#" data-page="admin" class="nav-link">Admin</a></li>
+      </ul>
+    </nav>
+    <div class="search-container">
+      <span class="search-icon">🔍</span>
+      <input type="text" class="search-input" id="search" placeholder="Search phones, laptops, gaming gear..." autocomplete="off">
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌓</button>
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">☰</button>
+  </div>
+</header>
+
+<div id="page-content">
+  
+  <div id="home-page" class="page current-page">
+    <section class="hero">
+      <div class="hero-slider" id="heroSlider">
+        <div class="slide active" style="background-image:url('images/hero1.jpg');">
+          <div class="slide-text">
+            <h1>Elite Gaming Gear</h1>
+            <p>Level up your setup with top-tier laptops, consoles, and accessories from the best brands.</p>
+            <button class="btn btn-primary" onclick="scrollToProducts()">Shop Gaming Deals</button>
+          </div>
+        </div>
+        <div class="slide" style="background-image:url('images/hero2.jpg');">
+          <div class="slide-text">
+            <h1>Premium Smartphones</h1>
+            <p>From flagship devices to budget-friendly options - find your perfect mobile companion.</p>
+            <button class="btn btn-primary" onclick="scrollToProducts()">Explore Phones</button>
+          </div>
+        </div>
+        <div class="slide" style="background-image:url('images/hero3.jpg');">
+          <div class="slide-text">
+            <h1>Professional Laptops</h1>
+            <p>Power your productivity with premium laptops designed for professionals and creators.</p>
+            <button class="btn btn-primary" onclick="scrollToProducts()">Shop Laptops</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="filters">
+      <select class="filter-select" id="brandFilter" aria-label="Filter by brand">
+        <option value="all">🏷️ All Brands</option>
+        <option value="Apple">🍎 Apple</option>
+        <option value="Samsung">📱 Samsung</option>
+        <option value="Dell">💻 Dell</option>
+        <option value="HP">🖥️ HP</option>
+        <option value="ASUS">⚡ ASUS</option>
+        <option value="Lenovo">🔧 Lenovo</option>
+      </select>
+      <select class="filter-select" id="typeFilter" aria-label="Filter by category">
+        <option value="all">📂 All Categories</option>
+        <option value="budget">💰 Budget-Friendly</option>
+        <option value="premium">💎 Premium</option>
+        <option value="gaming">🎮 Gaming</option>
+        <option value="wearable">⌚ Wearables</option>
+      </select>
+    </section>
+
+    <main class="products-section" id="products-section">
+      <h2 class="section-title">Featured Products</h2>
+      <div class="product-grid" id="productGrid">
+        
+      </div>
+      <div id="quickViewModal" class="modal">
+    <div class="modal-content" id="quickViewContent">
+    </div>
+</div>
+    </main>
+
+    <section class="newsletter">
+      <h3>Stay Updated with TechHive SA</h3>
+      <p>Get exclusive deals, new product launches, and tech tips delivered straight to your inbox. All prices include 15% VAT.</p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+        <button type="submit" class="btn btn-primary">Subscribe Now</button>
+      </form>
+    </section>
+  </div>
+
+  
+  <div id="about-page" class="page">
+    
+  </div>
+
+ 
+  <div id="cart-page" class="page">
+    <div class="page-header">
+      <a href="#" class="back-link" data-page="home">← Back to Shop</a>
+      <h1>Your Shopping Cart</h1>
+      <p>Review your items and proceed to checkout. All prices include 15% VAT and free delivery over R1,000.</p>
+    </div>
+    <main class="main-content">
+      <div id="cart-container" class="cart-container">
+      
+      </div>
+    </main>
+  </div>
+
+  <div id="compare-page" class="page">
+    <div class="page-header">
+      <a href="#" class="back-link" data-page="home">← Back to Shop</a>
+      <h1>Compare Products</h1>
+      <p>Compare up to 3 products side by side to find the perfect match for your needs.</p>
+    </div>
+    <main class="main-content">
+      <div id="compare-container" class="compare-container">
+        
+      </div>
+    </main>
+  </div>
+
+  
+  <div id="admin-page" class="page">
+    <div class="page-header">
+      <a href="#" class="back-link" data-page="home">← Back to Shop</a>
+      <h1>Admin Dashboard</h1>
+      <p>Manage products, view analytics, and control store settings.</p>
+    </div>
+    <main class="main-content">
+      <div class="admin-form">
+        <h3>Add New Product</h3>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem;">Add new products to the TechHive SA catalog.</p>
+        <form id="admin-form">
+          <input type="text" name="name" placeholder="Product Name (e.g., iPhone 15 Pro)" required>
+          <input type="text" name="brand" placeholder="Brand (e.g., Apple, Samsung)" required>
+          <select name="type" required style="width: 100%; padding: 1rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-primary); color: var(--text-primary); margin-bottom: 1rem; font-family: inherit; font-size: 1rem;">
+            <option value="">Select Category</option>
+            <option value="premium">Premium</option>
+            <option value="gaming">Gaming</option>
+            <option value="wearable">Wearable</option>
+            <option value="budget">Budget</option>
+          </select>
+          <textarea name="description" placeholder="Product Description" required rows="3"></textarea>
+          <input type="number" name="price" placeholder="Price in ZAR (e.g., 25999)" required min="1">
+          <textarea name="specs" placeholder="Technical Specifications" required rows="2"></textarea>
+          <input type="text" name="icon" placeholder="Product Icon (emoji)" maxlength="2">
+          <button type="submit" class="btn btn-primary">Add Product</button>
+        </form>
+      </div>
+      
+      <div style="margin-top: 3rem; padding: 2rem; background: var(--bg-secondary); border-radius: 12px; border: 1px solid var(--border-color);">
+        <h3 style="margin-bottom: 1.5rem;">Store Analytics</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+          <div style="text-align: center; padding: 1.5rem; background: var(--bg-primary); border-radius: 8px;">
+            <div style="font-size: 2rem; font-weight: 700; color: var(--primary-color);" id="total-products">9</div>
+            <div style="color: var(--text-secondary); font-size: 0.9rem;">Total Products</div>
+          </div>
+          <div style="text-align: center; padding: 1.5rem; background: var(--bg-primary); border-radius: 8px;">
+            <div style="font-size: 2rem; font-weight: 700; color: var(--primary-color);" id="cart-items">0</div>
+            <div style="color: var(--text-secondary); font-size: 0.9rem;">Items in Cart</div>
+          </div>
+          <div style="text-align: center; padding: 1.5rem; background: var(--bg-primary); border-radius: 8px;">
+            <div style="font-size: 2rem; font-weight: 700; color: var(--primary-color);" id="compare-items">0</div>
+            <div style="color: var(--text-secondary); font-size: 0.9rem;">Items to Compare</div>
+          </div>
+          <div style="text-align: center; padding: 1.5rem; background: var(--bg-primary); border-radius: 8px;">
+            <div style="font-size: 2rem; font-weight: 700; color: var(--primary-color);" id="subscribers-count">0</div>
+            <div style="color: var(--text-secondary); font-size: 0.9rem;">Newsletter Subscribers</div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<footer class="footer">
+  <div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; padding: 2rem;">
+    <div>
+      <h4 style="color: var(--text-primary); margin-bottom: 1rem;">TechHive SA</h4>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">South Africa's premier electronics retailer, serving customers nationwide with premium technology and exceptional service.</p>
+    </div>
+    <div>
+      <h4 style="color: var(--text-primary); margin-bottom: 1rem;">Quick Links</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="#" data-page="about" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; line-height: 2;">About Us</a></li>
+        <li><a href="#" data-page="home" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; line-height: 2;">Products</a></li>
+        <li><a href="#" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; line-height: 2;">Support</a></li>
+        <li><a href="#" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; line-height: 2;">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="color: var(--text-primary); margin-bottom: 1rem;">Contact Info</h4>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.8;">
+        📧 info@techhive.co.za<br>
+        📞 +27 21 123 4567<br>
+        📍 Cape Town, South Africa
+      </p>
+    </div>
+    <div>
+      <h4 style="color: var(--text-primary); margin-bottom: 1rem;">Follow Us</h4>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">Stay connected for the latest updates and exclusive deals.</p>
+      <div style="margin-top: 1rem;">
+      <span style="font-size: 1.5rem; margin-right: 1rem; cursor: pointer;"> Meta </span>
+        <span style="font-size: 1.5rem; margin-right: 1rem; cursor: pointer;">📷</span>
+        <span style="font-size: 1.5rem; margin-right: 1rem; cursor: pointer;">𝕏</span>
+      </div>
+    </div>
+  </div>
+  <div style="border-top: 1px solid var(--border-color); padding: 1rem 2rem; text-align: center;">
+    <p style="color: var(--text-secondary); font-size: 0.9rem;">&copy; 2025 TechHive SA. All rights reserved. VAT No: 4123456789 | Cape Town, Western Cape, South Africa</p>
+  </div>
+</footer>
+
+<div id="quickViewModal" class="modal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close modal">&times;</button>
+    <div id="quickViewContent">
+      
+    </div>
+  </div>
+</div>
+
+
+<div id="loading-indicator" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 9999; background: var(--bg-primary); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow-xl); text-align: center;">
+  <div style="font-size: 2rem; margin-bottom: 1rem;">⏳</div>
+  <p>Loading...</p>
+</div>
+<div id="admin-page" class="page">
+  <div class="page-header">
+    <a href="#" class="back-link" data-page="home">← Back to Shop</a>
+    <h1>Admin Dashboard</h1>
+    <p>Manage products, view analytics, and control store settings.</p>
+  </div>
+  <main class="main-content">
+    <div class="admin-form">
+      <h3>Add New Product</h3>
+      <p style="color: var(--text-secondary); margin-bottom: 2rem;">Add new products to the TechHive SA catalog.</p>
+      <form id="admin-form">
+        <input type="text" name="name" placeholder="Product Name (e.g., iPhone 15 Pro)" required>
+        <input type="text" name="brand" placeholder="Brand (e.g., Apple, Samsung)" required>
+        <select name="type" required style="width: 100%; padding: 1rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-primary); color: var(--text-primary); margin-bottom: 1rem; font-family: inherit; font-size: 1rem;">
+          <option value="">Select Category</option>
+          <option value="premium">Premium</option>
+          <option value="gaming">Gaming</option>
+          <option value="wearable">Wearable</option>
+          <option value="budget">Budget</option>
+        </select>
+        <textarea name="description" placeholder="Product Description" required rows="3"></textarea>
+        <input type="number" name="price" placeholder="Price in ZAR (e.g., 25999)" required min="1">
+        <textarea name="specs" placeholder="Technical Specifications" required rows="2"></textarea>
+        <input type="text" name="icon" placeholder="Product Icon (emoji)" maxlength="2">
+        <button type="submit" class="btn btn-primary">Add Product</button>
+      </form>
+    </div>
+    
+    <div style="margin-top: 3rem; padding: 2rem; background: var(--bg-secondary); border-radius: 12px; border: 1px solid var(--border-color);">
+      <h3 style="margin-bottom: 1.5rem;">Store Analytics</h3>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+        <div style="text-align: center; padding: 1.5rem; background: var(--bg-primary); border-radius: 8px;">
+          <div style="font-size: 2rem; font-weight: 700; color: var(--primary-color);" id="total-products"></div>
+          <div style="color: var(--text-secondary); font-size: 0.9rem;">Total Products</div>
+        </div>
+        <div style="text-align: center; padding: 1.5rem; background: var(--bg-primary); border-radius: 8px;">
+          <div style="font-size: 2rem; font-weight: 700; color: var(--primary-color);" id="cart-items"></div>
+          <div style="color: var(--text-secondary); font-size: 0.9rem;">Items in Cart</div>
+        </div>
+        <div style="text-align: center; padding: 1.5rem; background: var(--bg-primary); border-radius: 8px;">
+          <div style="font-size: 2rem; font-weight: 700; color: var(--primary-color);" id="compare-items"></div>
+          <div style="color: var(--text-secondary); font-size: 0.9rem;">Items to Compare</div>
+        </div>
+        <div style="text-align: center; padding: 1.5rem; background: var(--bg-primary); border-radius: 8px;">
+          <div style="font-size: 2rem; font-weight: 700; color: var(--primary-color);" id="subscribers-count"></div>
+          <div style="color: var(--text-secondary); font-size: 0.9rem;">Newsletter Subscribers</div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script>
+
+let cart = [];
+let compare = [];
+let subscribers = [];
+let currentImageIndex = 0;
+let currentProduct = null;
+
+
+const productGrid = document.getElementById('productGrid');
+const brandFilter = document.getElementById('brandFilter');
+const typeFilter = document.getElementById('typeFilter');
+const searchInput = document.getElementById('search');
+
+
+const products = [
+  {
+    id: 1,
+    name: "iPhone 15",
+    brand: "Apple",
+    type: "premium",
+    description: "The latest Apple iPhone 15 with advanced features, stunning design, and powerful performance.",
+    price: 26999,
+    specs: "128GB Storage, A17 Bionic chip, 6GB RAM, Advanced Camera System",
+    icon: "📱",
+    images: ["iphone_1.jpg", "iphone15_2.jpg", "iphone15_3.jpg"],
+    features: ["Face ID", "Wireless Charging", "Water Resistant", "Night Mode Camera"]
+  },
+  {
+    id: 2,
+    name: "MacBook Air",
+    brand: "Apple",
+    type: "premium",
+    description: "Ultra-lightweight Apple MacBook Air with M2 chip for professional and creative work.",
+    price: 24999,
+    specs: "M2 Chip, 8GB Unified Memory, 256GB SSD, 13.6-inch Liquid Retina Display",
+    icon: "💻",
+    images: ["macbook_1.jpeg", "macbook_2.jpeg", "macbook_3.jpeg"],
+    features: ["M2 Chip Performance", "All-Day Battery", "Silent Operation", "MagSafe Charging"]
+  },
+  {
+    id: 3,
+    name: "Apple Watch Series 9",
+    brand: "Apple",
+    type: "wearable",
+    description: "Advanced health tracking and smart features in Apple's latest smartwatch.",
+    price: 8999,
+    specs: "GPS + Cellular, Heart Rate Monitor, 40mm Case, Always-On Retina Display",
+    icon: "⌚",
+    images: ["watch_1.jpeg", "watch_2.jpeg", "watch_3.jpeg"],
+    features: ["Health Monitoring", "Fitness Tracking", "Water Resistant", "ECG Capability"]
+  },
+  {
+    id: 4,
+    name: "Samsung Galaxy S24",
+    brand: "Samsung",
+    type: "premium",
+    description: "Samsung's flagship smartphone with AI-powered features and exceptional camera quality.",
+    price: 21999,
+    specs: "512GB Storage, 12GB RAM, Snapdragon 8 Gen 3, 200MP Camera",
+    icon: "📱",
+    images: ["galaxy_1.jpeg", "galaxy_2.jpeg", "galaxy_3.jpeg"],
+    features: ["AI Photography", "S Pen Support", "120Hz Display", "Ultra-Fast Charging"]
+  },
+  {
+    id: 5,
+    name: "Samsung Buds Pro",
+    brand: "Samsung",
+    type: "wearable",
+    description: "Premium wireless earbuds with active noise cancellation and superior audio quality.",
+    price: 2999,
+    specs: "Active Noise Cancelling, Bluetooth 5.3, 28-hour Battery, IPX7 Rating",
+    icon: "🎧",
+    images: ["buds_1.jpeg", "buds_2.jpeg", "buds_3.jpeg"],
+    features: ["ANC Technology", "360 Audio", "Touch Controls", "Voice Assistant"]
+  },
+  {
+    id: 6,
+    name: "Dell XPS 15",
+    brand: "Dell",
+    type: "premium",
+    description: "Professional-grade Dell laptop with stunning 4K display and powerful performance.",
+    price: 29999,
+    specs: "Intel i9-12900HK, 16GB RAM, 1TB SSD, RTX 3050 Ti, 15.6\" 4K OLED",
+    icon: "💻",
+    images: ["dell_1.jpeg", "dell_2.jpeg", "dell_3.jpeg"],
+    features: ["4K OLED Display", "Professional Graphics", "Premium Build", "Long Battery Life"]
+  },
+  {
+    id: 7,
+    name: "HP Pavilion Gaming",
+    brand: "HP",
+    type: "gaming",
+    description: "Affordable gaming desktop with solid performance for modern games.",
+    price: 18999,
+    specs: "RTX 3060, Intel i5-12400F, 16GB DDR4 RAM, 512GB NVMe SSD",
+    icon: "🎮",
+    images: ["hp_1.jpg", "hp_2.jpeg", "hp_3.jpeg"],
+    features: ["Gaming Ready", "RGB Lighting", "VR Compatible", "Upgrade Friendly"]
+  },
+  {
+    id: 8,
+    name: "ASUS ROG Zephyrus",
+    brand: "ASUS",
+    type: "gaming",
+    description: "High-end gaming laptop with cutting-edge performance and premium design.",
+    price: 34999,
+    specs: "RTX 4070, AMD Ryzen 9, 32GB RAM, 1TB SSD, 15.6\" QHD 165Hz",
+    icon: "🎮",
+    images: ["asus_1.jpeg", "asus_2.jpeg", "asus_3.jpg"],
+    features: ["High Refresh Display", "Advanced Cooling", "RGB Keyboard", "Premium Audio"]
+  },
+  {
+    id: 9,
+    name: "Lenovo ThinkPad X1",
+    brand: "Lenovo",
+    type: "premium",
+    description: "Business-class laptop with enterprise-grade security and reliability.",
+    price: 27999,
+    specs: "Intel i7-12700U, 16GB RAM, 512GB SSD, 14\" 2.8K OLED, ThinkShield",
+    icon: "💻",
+    images: ["lenovo_1.jpeg", "lenovo_2.jpeg", "lenovo_3.jpeg"],
+    features: ["Business Grade", "Enhanced Security", "Durable Design", "Excellent Keyboard"]
+  }
+];
+
+
+function renderProducts(brand = 'all', type = 'all', search = '') {
+  productGrid.style.opacity = '0';
+  
+  setTimeout(() => {
+    productGrid.innerHTML = '';
+    
+    const filteredProducts = products.filter(product => {
+      const matchesBrand = brand === 'all' || product.brand === brand;
+      const matchesType = type === 'all' || product.type === type;
+      const matchesSearch = search === '' || product.name.toLowerCase().includes(search.toLowerCase()) || 
+                           product.brand.toLowerCase().includes(search.toLowerCase());
+      return matchesBrand && matchesType && matchesSearch;
+    });
+
+    if (filteredProducts.length === 0) {
+      productGrid.innerHTML = `
+        <div style="grid-column: 1 / -1; text-align: center; padding: 3rem;">
+          <div style="font-size: 4rem; margin-bottom: 1rem;">🔍</div>
+          <h3>No products found</h3>
+          <p style="color: var(--text-secondary);">Try adjusting your filters or search terms.</p>
+        </div>
+      `;
+    } else {
+      filteredProducts.forEach((product) => {
+        const card = document.createElement('div');
+        card.className = 'product-card fade-in';
+        card.innerHTML = `
+          <div class="product-icon">${product.icon}</div>
+          <h3 class="product-title">${product.name}</h3>
+          <p class="product-brand">${product.brand} | ${product.type}</p>
+          <p class="product-price">R${parseFloat(product.price).toLocaleString()}</p>
+          <div class="product-actions">
+            <button class="btn-cart" onclick="addToCart(${product.id})" title="Add to Cart">
+              🛒 Add to Cart
+            </button>
+            <button class="btn-quick" onclick="quickView(${product.id})" title="Quick View">
+              👁️ Quick View
+            </button>
+            <button class="btn-compare" onclick="addToCompare(${product.id})" title="Compare">
+              ⚖️ Compare
+            </button>
+          </div>
+        `;
+        productGrid.appendChild(card);
+      });
+    }
+    
+    productGrid.style.opacity = '1';
+  }, 200);
+}
+
+
+function addToCart(productId) {
+  const product = products.find(p => p.id === productId);
+  if (product) {
+    cart.push(product);
+    updateCartCount();
+    showNotification('Added to cart!', 'success');
+    animateCartBadge();
+    updateAdminStats();
+  }
+}
+
+function removeFromCart(index) {
+  cart.splice(index, 1);
+  updateCartCount();
+  renderCartPage();
+  showNotification('Removed from cart!', 'info');
+  updateAdminStats();
+}
+
+function updateCartCount() {
+  document.getElementById('cart-count').innerText = cart.length;
+}
+
+function animateCartBadge() {
+  const badge = document.getElementById('cart-count');
+  badge.style.transform = 'scale(1.5)';
+  badge.style.background = '#10b981';
+  setTimeout(() => {
+    badge.style.transform = 'scale(1)';
+    badge.style.background = '';
+  }, 300);
+}
+
+
+// Enhanced Quick View with proper product tracking
+function quickView(productId) {
+  const product = products.find(p => p.id === productId);
+  if (!product) return;
+  
+  currentProduct = product; // Set the current product for image navigation
+  
+  const modal = document.getElementById('quickViewModal');
+  const content = document.getElementById('quickViewContent');
+  currentImageIndex = 0;
+
+  content.innerHTML = `
+    <div class="quick-view-content">
+      <div class="quick-view-images">
+        <img class="quick-view-image" id="quickImage" 
+             src="images/${product.images[0]}" 
+             alt="${product.name}"
+             onerror="this.style.background='var(--bg-secondary)'; this.style.display='flex'; this.style.alignItems='center'; this.style.justifyContent='center'; this.innerHTML='${product.icon}'; this.style.fontSize='4rem'; this.style.color='var(--primary-color)';">
+        <div class="image-controls">
+          <button class="image-nav" onclick="changeQuickImage(-1)">‹</button>
+          <button class="image-nav" onclick="changeQuickImage(1)">›</button>
+        </div>
+      </div>
+      <div class="quick-view-info">
+        <h2>${product.name}</h2>
+        <p class="quick-view-brand">${product.brand}</p>
+        <p class="quick-view-price">R${parseFloat(product.price).toLocaleString()}</p>
+        <p class="quick-view-description">${product.description}</p>
+        <div class="quick-view-specs">
+          <h4>Specifications:</h4>
+          <p>${product.specs}</p>
+        </div>
+        <div class="quick-view-features">
+          <h4>Key Features:</h4>
+          <ul style="list-style: none; padding-left: 0;">
+            ${product.features.map(feature => `<li style="margin-bottom: 0.5rem; color: var(--text-secondary);">✓ ${feature}</li>`).join('')}
+          </ul>
+        </div>
+        <div class="quick-view-actions">
+          <button class="btn-cart" onclick="addToCart(${product.id}); closeModal();">🛒 Add to Cart</button>
+          <button class="btn-compare" onclick="addToCompare(${product.id}); closeModal();">⚖️ Add to Compare</button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  modal.classList.add('show');
+}
+
+function changeQuickImage(direction) {
+  if (!currentProduct) return;
+  currentImageIndex = (currentImageIndex + direction + currentProduct.images.length) % currentProduct.images.length;
+  const quickImg = document.getElementById('quickImage');
+  quickImg.src = `images/${currentProduct.images[currentImageIndex]}`;
+}
+
+function changeQuickImage(direction) {
+  if (!currentProduct) return;
+  currentImageIndex = (currentImageIndex + direction + 3) % 3;
+  const quickImg = document.getElementById('quickImage');
+  quickImg.src = `images/${currentProduct.images[currentImageIndex]}`;
+}
+
+function closeModal() {
+  document.getElementById('quickViewModal').classList.remove('show');
+  currentProduct = null;
+}
+
+
+function addToCompare(productId) {
+  const product = products.find(p => p.id === productId);
+  if (!product) return;
+  
+  if (compare.find(p => p.id === productId)) {
+    showNotification('Product already in comparison!', 'warning');
+    return;
+  }
+  
+  if (compare.length >= 3) {
+    showNotification('Maximum 3 products can be compared!', 'warning');
+    return;
+  }
+  
+  compare.push(product);
+  showNotification('Added to comparison!', 'success');
+  updateCompareCount();
+  updateAdminStats();
+}
+
+function removeFromCompare(productId) {
+  compare = compare.filter(p => p.id !== productId);
+  renderComparePage();
+  showNotification('Removed from comparison!', 'info');
+  updateCompareCount();
+  updateAdminStats();
+}
+
+function updateCompareCount() {
+  const compareLink = document.querySelector('[data-page="compare"]');
+  const currentText = compareLink.textContent.split(' ')[0];
+  compareLink.innerHTML = `${currentText} ${compare.length > 0 ? `<span class="cart-badge">${compare.length}</span>` : ''}`;
+}
+
+
+function renderCartPage() {
+  const container = document.getElementById('cart-container');
+  
+  if (cart.length === 0) {
+    container.innerHTML = `
+      <div style="text-align: center; padding: 3rem;">
+        <div style="font-size: 4rem; margin-bottom: 1rem;">🛒</div>
+        <h3>Your cart is empty</h3>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem;">Add some amazing products to get started!</p>
+        <button class="btn btn-primary" onclick="switchPage('home')">Continue Shopping</button>
+      </div>
+    `;
+    return;
+  }
+
+  const total = cart.reduce((sum, item) => sum + item.price, 0);
+  const vat = total * 0.15;
+  const subtotal = total - vat;
+
+  container.innerHTML = `
+    <div class="cart-items">
+      ${cart.map((item, index) => `
+        <div class="cart-item">
+          <div class="cart-item-icon">${item.icon}</div>
+          <div class="cart-item-details">
+            <div class="cart-item-name">${item.name}</div>
+            <div class="cart-item-brand">${item.brand} | ${item.type}</div>
+            <div class="cart-item-price">R${parseFloat(item.price).toLocaleString()}</div>
+          </div>
+          <button class="remove-btn" onclick="removeFromCart(${index})">Remove</button>
+        </div>
+      `).join('')}
+    </div>
+    <div style="border-top: 1px solid var(--border-color); padding-top: 2rem; margin-top: 2rem;">
+      <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+        <span>Subtotal (excl. VAT):</span>
+        <span>R${subtotal.toLocaleString()}</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+        <span>VAT (15%):</span>
+        <span>R${vat.toLocaleString()}</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; font-size: 1.2rem; font-weight: 700; border-top: 1px solid var(--border-color); padding-top: 1rem;">
+        <span>Total:</span>
+        <span style="color: var(--primary-color);">R${total.toLocaleString()}</span>
+      </div>
+      <div style="margin-top: 2rem; display: flex; gap: 1rem;">
+        <button class="btn btn-primary" style="flex: 1;" onclick="checkout()">Proceed to Checkout</button>
+        <button class="btn btn-secondary" onclick="clearCart()">Clear Cart</button>
+      </div>
+    </div>
+  `;
+}
+
+
+function renderComparePage() {
+  const container = document.getElementById('compare-container');
+  
+  if (compare.length === 0) {
+    container.innerHTML = `
+      <div style="text-align: center; padding: 3rem;">
+        <div style="font-size: 4rem; margin-bottom: 1rem;">⚖️</div>
+        <h3>No products to compare</h3>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem;">Add products to compare their features side by side!</p>
+        <button class="btn btn-primary" onclick="switchPage('home')">Browse Products</button>
+      </div>
+    `;
+    return;
+  }
+
+  container.innerHTML = `
+    <div style="margin-bottom: 2rem;">
+      <h3>Comparing ${compare.length} Product${compare.length > 1 ? 's' : ''}</h3>
+    </div>
+    <div style="overflow-x: auto;">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>Product</th>
+            ${compare.map(product => `
+              <th style="text-align: center; min-width: 200px;">
+                <div style="font-size: 2rem;">${product.icon}</div>
+                <div style="margin-top: 0.5rem;">${product.name}</div>
+                <button class="remove-btn" style="margin-top: 1rem; font-size: 0.7rem;" onclick="removeFromCompare(${product.id})">Remove</button>
+              </th>
+            `).join('')}
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Brand</strong></td>
+            ${compare.map(product => `<td>${product.brand}</td>`).join('')}
+          </tr>
+          <tr>
+            <td><strong>Type</strong></td>
+            ${compare.map(product => `<td style="text-transform: capitalize;">${product.type}</td>`).join('')}
+          </tr>
+          <tr>
+            <td><strong>Price</strong></td>
+            ${compare.map(product => `<td style="color: var(--primary-color); font-weight: 600;">R${parseFloat(product.price).toLocaleString()}</td>`).join('')}
+          </tr>
+          <tr>
+            <td><strong>Description</strong></td>
+            ${compare.map(product => `<td>${product.description}</td>`).join('')}
+          </tr>
+          <tr>
+            <td><strong>Specifications</strong></td>
+            ${compare.map(product => `<td>${product.specs}</td>`).join('')}
+          </tr>
+          <tr>
+            <td><strong>Key Features</strong></td>
+            ${compare.map(product => `
+              <td>
+                <ul style="list-style: none; padding: 0;">
+                  ${product.features.map(feature => `<li style="margin-bottom: 0.5rem;">✓ ${feature}</li>`).join('')}
+                </ul>
+              </td>
+            `).join('')}
+          </tr>
+          <tr>
+            <td><strong>Actions</strong></td>
+            ${compare.map(product => `
+              <td>
+                <button class="btn-cart" style="width: 100%; margin-bottom: 0.5rem;" onclick="addToCart(${product.id})">Add to Cart</button>
+                <button class="btn-quick" style="width: 100%;" onclick="quickView(${product.id})">Quick View</button>
+              </td>
+            `).join('')}
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
+
+function renderAboutPage() {
+  const aboutPage = document.getElementById('about-page');
+  aboutPage.innerHTML = `
+    <div class="about-hero">
+      <h1>About TechHive SA</h1>
+      <p>South Africa's premier destination for cutting-edge technology and exceptional service</p>
+    </div>
+    
+    <div class="about-content">
+      <div class="about-section">
+        <h2>Our Story</h2>
+        <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 2rem;">
+          Founded in 2020 in the heart of Cape Town, TechHive SA emerged from a simple vision: to make premium technology accessible to every South African. What started as a small startup has grown into one of the country's most trusted electronics retailers, serving thousands of satisfied customers across all nine provinces.
+        </p>
+        <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-secondary);">
+          We believe that technology should empower, inspire, and connect people. That's why we carefully curate our selection of products, ensuring that every item meets our high standards for quality, innovation, and value.
+        </p>
+      </div>
+
+      <div class="about-section">
+        <h2>Why Choose TechHive SA?</h2>
+        <div class="about-grid">
+          <div class="feature-card">
+            <span class="feature-icon">🚚</span>
+            <h3>Fast & Free Delivery</h3>
+            <p>Free delivery on orders over R1,000. Express delivery available to major cities within 24-48 hours.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🛡️</span>
+            <h3>Extended Warranties</h3>
+            <p>Comprehensive warranty coverage with local support. We stand behind every product we sell.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">💎</span>
+            <h3>Premium Quality</h3>
+            <p>Only authentic, brand-new products from authorized distributors. No grey imports or refurbished items.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🎯</span>
+            <h3>Expert Advice</h3>
+            <p>Our tech specialists are here to help you find the perfect device for your needs and budget.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">💳</span>
+            <h3>Flexible Payment</h3>
+            <p>Multiple payment options including interest-free installments and corporate accounts.</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🔄</span>
+            <h3>Easy Returns</h3>
+            <p>30-day hassle-free returns and exchanges. Changed your mind? No problem!</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-section">
+        <h2>Our Impact</h2>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span class="stat-number">50,000+</span>
+            <span class="stat-label">Happy Customers</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">5,000+</span>
+            <span class="stat-label">Products Delivered</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">98.5%</span>
+            <span class="stat-label">Customer Satisfaction</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-number">24/7</span>
+            <span class="stat-label">Customer Support</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-section">
+        <h2>Our Team</h2>
+        <p style="text-align: center; font-size: 1.1rem; color: var(--text-secondary); margin-bottom: 2rem;">
+          Meet the passionate individuals who make TechHive SA possible
+        </p>
+        <div class="team-grid">
+          <div class="team-member">
+            <div class="member-avatar">👨‍💼</div>
+            <div class="member-name">Thabo Mthembu</div>
+            <div class="member-role">Founder & CEO</div>
+          </div>
+          <div class="team-member">
+            <div class="member-avatar">👩‍💻</div>
+            <div class="member-name">Sarah Johnson</div>
+            <div class="member-role">Head of Technology</div>
+          </div>
+          <div class="team-member">
+            <div class="member-avatar">👨‍🔧</div>
+            <div class="member-name">Ahmed Hassan</div>
+            <div class="member-role">Technical Support Lead</div>
+          </div>
+          <div class="team-member">
+            <div class="member-avatar">👩‍📊</div>
+            <div class="member-name">Nomsa Dlamini</div>
+            <div class="member-role">Customer Success Manager</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-section">
+        <h2>Our Commitment</h2>
+        <div style="background: var(--bg-secondary); padding: 2rem; border-radius: 12px; border-left: 4px solid var(--primary-color);">
+          <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-primary); margin-bottom: 1rem;">
+            <strong>Environmental Responsibility:</strong> We're committed to sustainable practices, including eco-friendly packaging and electronic waste recycling programs.
+          </p>
+          <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-primary); margin-bottom: 1rem;">
+            <strong>Community Impact:</strong> Through our TechHive Cares program, we donate refurbished devices to schools and community centers across South Africa.
+          </p>
+          <p style="font-size: 1.1rem; line-height: 1.8; color: var(--text-primary);">
+            <strong>Innovation:</strong> We continuously invest in new technologies and services to enhance your shopping experience and stay ahead of global trends.
+          </p>
+        </div>
+      </div>
+
+      <div class="about-section" style="text-align: center; background: linear-gradient(135deg, var(--primary-color), var(--accent-color)); color: white; padding: 3rem; border-radius: 16px;">
+        <h2 style="color: white; margin-bottom: 1rem;">Ready to Experience the Difference?</h2>
+        <p style="font-size: 1.1rem; margin-bottom: 2rem; opacity: 0.9;">Join thousands of satisfied customers who trust TechHive SA for their technology needs.</p>
+        <button class="btn" style="background: white; color: var(--primary-color); font-weight: 600;" onclick="switchPage('home')">
+          Start Shopping Today
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+
+function clearCart() {
+  if (confirm('Are you sure you want to clear your cart?')) {
+    cart = [];
+    updateCartCount();
+    renderCartPage();
+    showNotification('Cart cleared!', 'info');
+    updateAdminStats();
+  }
+}
+
+function checkout() {
+  if (cart.length === 0) return;
+  
+  const total = cart.reduce((sum, item) => sum + item.price, 0);
+  showNotification(`Thank you for your order! Total: R${total.toLocaleString()}. This is a demo - no actual payment will be processed.`, 'success');
+  
+  
+  cart = [];
+  updateCartCount();
+  renderCartPage();
+  updateAdminStats();
+}
+
+function showNotification(message, type = 'info') {
+  const notification = document.createElement('div');
+  notification.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 1rem 1.5rem;
+    border-radius: 8px;
+    color: white;
+    font-weight: 500;
+    z-index: 10000;
+    animation: slideIn 0.3s ease;
+    background: ${type === 'success' ? '#10b981' : type === 'warning' ? '#f59e0b' : '#3b82f6'};
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    max-width: 300px;
+  `;
+  
+  notification.textContent = message;
+  document.body.appendChild(notification);
+  
+  setTimeout(() => {
+    notification.style.animation = 'slideOut 0.3s ease forwards';
+    setTimeout(() => notification.remove(), 300);
+  }, 3000);
+}
+
+
+function switchPage(pageName) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('current-page'));
+  document.getElementById(pageName + '-page').classList.add('current-page');
+  document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+  document.querySelector(`[data-page="${pageName}"]`).classList.add('active');
+  
+ 
+  if (pageName === 'cart') renderCartPage();
+  if (pageName === 'compare') renderComparePage();
+  if (pageName === 'about') renderAboutPage();
+}
+
+// Newsletter Subscription
+function subscribeNewsletter(email) {
+  if (subscribers.includes(email)) {
+    showNotification('Already subscribed!', 'warning');
+    return;
+  }
+  
+  subscribers.push(email);
+  showNotification('Successfully subscribed to our newsletter!', 'success');
+  updateAdminStats();
+}
+
+
+function scrollToProducts() {
+  document.getElementById('products-section').scrollIntoView({ 
+    behavior: 'smooth',
+    block: 'start'
+  });
+}
+
+
+function updateAdminStats() {
+  const totalProductsEl = document.getElementById('total-products');
+  const cartItemsEl = document.getElementById('cart-items');
+  const compareItemsEl = document.getElementById('compare-items');
+  const subscribersCountEl = document.getElementById('subscribers-count');
+  
+  if (totalProductsEl) totalProductsEl.textContent = products.length;
+  if (cartItemsEl) cartItemsEl.textContent = cart.length;
+  if (compareItemsEl) compareItemsEl.textContent = compare.length;
+  if (subscribersCountEl) subscribersCountEl.textContent = subscribers.length;
+}
+
+
+document.addEventListener('DOMContentLoaded', function() {
+  
+  renderProducts();
+  updateCartCount();
+  updateAdminStats();
+  
+  
+  brandFilter.addEventListener('change', () => {
+    renderProducts(brandFilter.value, typeFilter.value, searchInput.value);
+  });
+  
+  typeFilter.addEventListener('change', () => {
+    renderProducts(brandFilter.value, typeFilter.value, searchInput.value);
+  });
+  
+  searchInput.addEventListener('input', () => {
+    renderProducts(brandFilter.value, typeFilter.value, searchInput.value);
+  });
+
+ 
+  document.getElementById('newsletterForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const email = e.target[0].value;
+    subscribeNewsletter(email);
+    e.target.reset();
+  });
+
+
+  document.querySelectorAll('.nav-link, .back-link').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      switchPage(link.dataset.page);
+    });
+  });
+
+  
+  document.querySelectorAll('footer a[data-page]').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      switchPage(link.dataset.page);
+    });
+  });
+
+ 
+  document.querySelector('.logo').addEventListener('click', e => {
+    e.preventDefault();
+    switchPage('home');
+  });
+
+  
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    const currentTheme = document.documentElement.dataset.theme;
+    document.documentElement.dataset.theme = currentTheme === 'light' ? 'dark' : 'light';
+  });
+
+  
+  document.getElementById('mobileMenuToggle').addEventListener('click', () => {
+    document.getElementById('nav-links').classList.toggle('mobile-open');
+  });
+
+ 
+  document.addEventListener('click', (e) => {
+    const mobileMenu = document.getElementById('nav-links');
+    const mobileToggle = document.getElementById('mobileMenuToggle');
+    if (!mobileMenu.contains(e.target) && !mobileToggle.contains(e.target)) {
+      mobileMenu.classList.remove('mobile-open');
+    }
+  });
+
+ 
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+  }
+  setInterval(() => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }, 5000);
+
+  
+  const adminForm = document.getElementById('admin-form');
+  if (adminForm) {
+    adminForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const formData = new FormData(e.target);
+      const newProduct = {
+        id: products.length + 1,
+        name: formData.get('name'),
+        brand: formData.get('brand'),
+        type: formData.get('type'),
+        description: formData.get('description'),
+        price: parseInt(formData.get('price')),
+        specs: formData.get('specs'),
+        icon: formData.get('icon') || '📦',
+        images: [`${formData.get('name').toLowerCase().replace(/\s/g, '')}_1.jpg`],
+        features: ['Premium Quality', 'Latest Technology', 'Warranty Included']
+      };
+      
+      products.push(newProduct);
+      showNotification('Product added successfully!', 'success');
+      e.target.reset();
+      updateAdminStats();
+      renderProducts(); 
+    });
+  }
+
+  
+  document.getElementById('quickViewModal').addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) {
+      closeModal();
+    }
+  });
+
+ 
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeModal();
+      document.getElementById('nav-links').classList.remove('mobile-open');
+    }
+  });
+});
+
+
+const style = document.createElement('style');
+style.textContent = `
+  @keyframes slideIn {
+    from { transform: translateX(100%); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+  }
+  @keyframes slideOut {
+    from { transform: translateX(0); opacity: 1; }
+    to { transform: translateX(100%); opacity: 0; }
+  }
+  .fade-in {
+    animation: fadeIn 0.5s ease;
+  }
+`;
+document.head.appendChild(style);
+</script>
+</body>
+</html>
