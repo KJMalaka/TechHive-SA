@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TechHive SA - Premium Electronics Store | South Africa</title>
+<meta name="description" content="South Africa's premier electronics retailer. Shop premium smartphones, laptops, gaming gear and more with fast delivery and extended warranties.">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+<header class="header">
+  <div class="header-container">
+    <a href="#" class="logo" data-page="home">TechHive SA</a>
+    <nav class="nav">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#" data-page="home" class="nav-link active">Home</a></li>
+        <li><a href="#" data-page="about" class="nav-link">About Us</a></li>
+        <li><a href="#" data-page="cart" class="nav-link">Cart <span id="cart-count" class="cart-badge">0</span></a></li>
+        <li><a href="#" data-page="compare" class="nav-link">Compare</a></li>
+        <li><a href="#" data-page="admin" class="nav-link">Admin</a></li>
+      </ul>
+    </nav>
+    <div class="search-container">
+      <span class="search-icon">🔍</span>
+      <input type="text" class="search-input" id="search" placeholder="Search phones, laptops, gaming gear..." autocomplete="off">
+    </div>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">🌓</button>
+    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">☰</button>
+  </div>
+</header>
+
+<div id="page-content">
+  
+  <div id="home-page" class="page current-page">
+    <section class="hero">
+      <div class="hero-slider" id="heroSlider">
+        <div class="slide active" style="background-image:url('images/hero1.jpg');">
+          <div class="slide-text">
+            <h1>Elite Gaming Gear</h1>
+            <p>Level up your setup with top-tier laptops, consoles, and accessories from the best brands.</p>
+            <button class="btn btn-primary" onclick="scrollToProducts()">Shop Gaming Deals</button>
+          </div>
+        </div>
+        <div class="slide" style="background-image:url('images/hero2.jpg');">
+          <div class="slide-text">
+            <h1>Premium Smartphones</h1>
+            <p>From flagship devices to budget-friendly options - find your perfect mobile companion.</p>
+            <button class="btn btn-primary" onclick="scrollToProducts()">Explore Phones</button>
+          </div>
+        </div>
+        <div class="slide" style="background-image:url('images/hero3.jpg');">
+          <div class="slide-text">
+            <h1>Professional Laptops</h1>
+            <p>Power your productivity with premium laptops designed for professionals and creators.</p>
+            <button class="btn btn-primary" onclick="scrollToProducts()">Shop Laptops</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="filters">
+      <select class="filter-select" id="brandFilter" aria-label="Filter by brand">
+        <option value="all">🏷️ All Brands</option>
+        <option value="Apple">🍎 Apple</option>
+        <option value="Samsung">📱 Samsung</option>
+        <option value="Dell">💻 Dell</option>
+        <option value="HP">🖥️ HP</option>
+        <option value="ASUS">⚡ ASUS</option>
+        <option value="Lenovo">🔧 Lenovo</option>
+      </select>
+      <select class="filter-select" id="typeFilter" aria-label="Filter by category">
+        <option value="all">📂 All Categories</option>
+        <option value="budget">💰 Budget-Friendly</option>
+        <option value="premium">💎 Premium</option>
+        <option value="gaming">🎮 Gaming</option>
+        <option value="wearable">⌚ Wearables</option>
+      </select>
+    </section>
+
+    <main class="products-section" id="products-section">
+      <h2 class="section-title">Featured Products</h2>
+      <div class="product-grid" id="productGrid">
+        
+      </div>
+    </main>
+
+    <section class="newsletter">
+      <h3>Stay Updated with TechHive SA</h3>
+      <p>Get exclusive deals, new product launches, and tech tips delivered straight to your inbox. All prices include 15% VAT.</p>
+      <form class="newsletter-form" id="newsletterForm">
+        <input type="email" class="newsletter-input" placeholder="Enter your email address" required>
+        <button type="submit" class="btn btn-primary">Subscribe Now</button>
+      </form>
+    </section>
+  </div>
+
+  
+  <div id="about-page" class="page">
+    
+  </div>
+
+ 
+  <div id="cart-page" class="page">
+    <div class="page-header">
+      <a href="#" class="back-link" data-page="home">← Back to Shop</a>
+      <h1>Your Shopping Cart</h1>
+      <p>Review your items and proceed to checkout. All prices include 15% VAT and free delivery over R1,000.</p>
+    </div>
+    <main class="main-content">
+      <div id="cart-container" class="cart-container">
+      
+      </div>
+    </main>
+  </div>
+
+  <div id="compare-page" class="page">
+    <div class="page-header">
+      <a href="#" class="back-link" data-page="home">← Back to Shop</a>
+      <h1>Compare Products</h1>
+      <p>Compare up to 3 products side by side to find the perfect match for your needs.</p>
+    </div>
+    <main class="main-content">
+      <div id="compare-container" class="compare-container">
+        
+      </div>
+    </main>
+  </div>
+
+  
+  <div id="admin-page" class="page">
+    <div class="page-header">
+      <a href="#" class="back-link" data-page="home">← Back to Shop</a>
+      <h1>Admin Dashboard</h1>
+      <p>Manage products, view analytics, and control store settings.</p>
+    </div>
+    <main class="main-content">
+      <div class="admin-form">
+        <h3>Add New Product</h3>
+        <p style="color: var(--text-secondary); margin-bottom: 2rem;">Add new products to the TechHive SA catalog.</p>
+        <form id="admin-form">
+          <input type="text" name="name" placeholder="Product Name (e.g., iPhone 15 Pro)" required>
+          <input type="text" name="brand" placeholder="Brand (e.g., Apple, Samsung)" required>
+          <select name="type" required style="width: 100%; padding: 1rem; border: 1px solid var(--border-color); border-radius: 8px; background: var(--bg-primary); color: var(--text-primary); margin-bottom: 1rem; font-family: inherit; font-size: 1rem;">
+            <option value="">Select Category</option>
+            <option value="premium">Premium</option>
+            <option value="gaming">Gaming</option>
+            <option value="wearable">Wearable</option>
+            <option value="budget">Budget</option>
+          </select>
+          <textarea name="description" placeholder="Product Description" required rows="3"></textarea>
+          <input type="number" name="price" placeholder="Price in ZAR (e.g., 25999)" required min="1">
+          <textarea name="specs" placeholder="Technical Specifications" required rows="2"></textarea>
+          <input type="text" name="icon" placeholder="Product Icon (emoji)" maxlength="2">
+          <button type="submit" class="btn btn-primary">Add Product</button>
+        </form>
+      </div>
+      
+      <div style="margin-top: 3rem; padding: 2rem; background: var(--bg-secondary); border-radius: 12px; border: 1px solid var(--border-color);">
+        <h3 style="margin-bottom: 1.5rem;">Store Analytics</h3>
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem;">
+          <div style="text-align: center; padding: 1.5rem; background: var(--bg-primary); border-radius: 8px;">
+            <div style="font-size: 2rem; font-weight: 700; color: var(--primary-color);" id="total-products">9</div>
+            <div style="color: var(--text-secondary); font-size: 0.9rem;">Total Products</div>
+          </div>
+          <div style="text-align: center; padding: 1.5rem; background: var(--bg-primary); border-radius: 8px;">
+            <div style="font-size: 2rem; font-weight: 700; color: var(--primary-color);" id="cart-items">0</div>
+            <div style="color: var(--text-secondary); font-size: 0.9rem;">Items in Cart</div>
+          </div>
+          <div style="text-align: center; padding: 1.5rem; background: var(--bg-primary); border-radius: 8px;">
+            <div style="font-size: 2rem; font-weight: 700; color: var(--primary-color);" id="compare-items">0</div>
+            <div style="color: var(--text-secondary); font-size: 0.9rem;">Items to Compare</div>
+          </div>
+          <div style="text-align: center; padding: 1.5rem; background: var(--bg-primary); border-radius: 8px;">
+            <div style="font-size: 2rem; font-weight: 700; color: var(--primary-color);" id="subscribers-count">0</div>
+            <div style="color: var(--text-secondary); font-size: 0.9rem;">Newsletter Subscribers</div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<footer class="footer">
+  <div style="max-width: 1400px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; padding: 2rem;">
+    <div>
+      <h4 style="color: var(--text-primary); margin-bottom: 1rem;">TechHive SA</h4>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">South Africa's premier electronics retailer, serving customers nationwide with premium technology and exceptional service.</p>
+    </div>
+    <div>
+      <h4 style="color: var(--text-primary); margin-bottom: 1rem;">Quick Links</h4>
+      <ul style="list-style: none; padding: 0;">
+        <li><a href="#" data-page="about" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; line-height: 2;">About Us</a></li>
+        <li><a href="#" data-page="home" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; line-height: 2;">Products</a></li>
+        <li><a href="#" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; line-height: 2;">Support</a></li>
+        <li><a href="#" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem; line-height: 2;">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 style="color: var(--text-primary); margin-bottom: 1rem;">Contact Info</h4>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.8;">
+        📧 info@techhive.co.za<br>
+        📞 +27 21 123 4567<br>
+        📍 Cape Town, South Africa
+      </p>
+    </div>
+    <div>
+      <h4 style="color: var(--text-primary); margin-bottom: 1rem;">Follow Us</h4>
+      <p style="color: var(--text-secondary); font-size: 0.9rem; line-height: 1.6;">Stay connected for the latest updates and exclusive deals.</p>
+      <div style="margin-top: 1rem;">
+      <span style="font-size: 1.5rem; margin-right: 1rem; cursor: pointer;"> Meta </span>
+        <span style="font-size: 1.5rem; margin-right: 1rem; cursor: pointer;">📷</span>
+        <span style="font-size: 1.5rem; margin-right: 1rem; cursor: pointer;">𝕏</span>
+      </div>
+    </div>
+  </div>
+  <div style="border-top: 1px solid var(--border-color); padding: 1rem 2rem; text-align: center;">
+    <p style="color: var(--text-secondary); font-size: 0.9rem;">&copy; 2025 TechHive SA. All rights reserved. VAT No: 4123456789 | Cape Town, Western Cape, South Africa</p>
+  </div>
+</footer>
+
+<div id="quickViewModal" class="modal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeModal()" aria-label="Close modal">&times;</button>
+    <div id="quickViewContent">
+      
+    </div>
+  </div>
+</div>
+
+
+<div id="loading-indicator" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 9999; background: var(--bg-primary); padding: 2rem; border-radius: 12px; box-shadow: var(--shadow-xl); text-align: center;">
+  <div style="font-size: 2rem; margin-bottom: 1rem;">⏳</div>
+  <p>Loading...</p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
